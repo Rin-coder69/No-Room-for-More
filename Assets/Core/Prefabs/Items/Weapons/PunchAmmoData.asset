@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcaa5ff4fe10d746be20b1e3ea7cad8, type: 3}
+  m_Name: PunchAmmoData
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.AmmoData
+  ammoType: 2
+  lifetime: 0.1
+  hitLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  damage: 20
+  damageOverTime: 0
+  damageRate: 5
+  destroyOnImpact: 1
+  impactOnExpired: 0
+  impactPrefab: {fileID: 1384676760634654, guid: 289ba3245c9c98c42aeb93d5f45a2248, type: 3}
+  force: 10
+  forceMode: 1
+  hasGravity: 0
+  bounce: 0
+  rotateToVelocity: 1
+  distance: 100
+  meleeRadius: 0.5
+  meleeOffset: {x: 0, y: 1.5, z: 1}

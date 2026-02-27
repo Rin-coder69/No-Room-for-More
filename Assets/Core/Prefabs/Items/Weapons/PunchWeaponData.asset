@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dad34228eeaa746ab1f5ab2ddbc732, type: 3}
+  m_Name: PunchWeaponData
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.WeaponData
+  id: punch
+  displayName: Punch
+  description: 
+  icon: {fileID: -7786579738626157732, guid: 311c2d5a384d93e49b14d80905a024fc, type: 3}
+  itemType: 1
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 0
+  usageType: 0
+  attachBone: RightHandSword
+  animTriggerName: Attack
+  animEquipName: 
+  rigLayerWeight: []
+  itemPrefab: {fileID: 3728000855450736177, guid: dfb94cc5ee349f645a475eee229d37aa, type: 3}
+  pickupPrefab: {fileID: 0}
+  fireRate: 0.5
+  spread: {x: 0.1, y: 0.1, z: 0.1}
+  rounds: 0
+  ammoPrefab: {fileID: 2075021211689151091, guid: da090c760d69d4e4ebb29e0c857f7cf3, type: 3}

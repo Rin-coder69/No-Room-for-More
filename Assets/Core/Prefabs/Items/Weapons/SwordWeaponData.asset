@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dad34228eeaa746ab1f5ab2ddbc732, type: 3}
+  m_Name: SwordWeaponData
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.WeaponData
+  id: sword
+  displayName: Sword
+  description: 
+  icon: {fileID: 6416580310616032551, guid: c68838cd724d5cc4a89b38f46c68a7d1, type: 3}
+  itemType: 1
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: RightHandSword
+  animTriggerName: Attack
+  animEquipName: SwordEquip
+  rigLayerWeight: []
+  itemPrefab: {fileID: 8866186457446984591, guid: 29a3259624ab14c4ab3dbd5a37b9d976, type: 3}
+  pickupPrefab: {fileID: 200769403741634172, guid: c0cecb6dadc0b744db4c5fa3e0495f63, type: 3}
+  fireRate: 0.5
+  spread: {x: 0.1, y: 0.1, z: 0.1}
+  rounds: 0
+  ammoPrefab: {fileID: 2399804295041395406, guid: d143ee75c11581b4590f94bcb98b1173, type: 3}

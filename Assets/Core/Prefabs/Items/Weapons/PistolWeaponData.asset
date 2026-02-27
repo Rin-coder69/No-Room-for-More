@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dad34228eeaa746ab1f5ab2ddbc732, type: 3}
+  m_Name: PistolWeaponData
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.WeaponData
+  id: pistol
+  displayName: Piston
+  description: 
+  icon: {fileID: 797595499775425463, guid: 9ce1a11ff7aa36e4b9ad5dacd8c016f8, type: 3}
+  itemType: 1
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: RightHandPistol
+  animTriggerName: Attack
+  animEquipName: PistolEquip
+  rigLayerWeight: []
+  itemPrefab: {fileID: 1564900789607242895, guid: a7bd04999c4aa304584e1035768d5143, type: 3}
+  pickupPrefab: {fileID: 0}
+  fireRate: 0.5
+  spread: {x: 0.1, y: 0.1, z: 0.1}
+  rounds: 0
+  ammoPrefab: {fileID: 4885370489549767846, guid: ed5061a06b9e82d44b1cc8c1f7b39653, type: 3}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bbdc472a888e134ca9a1c119d7fd56d, type: 3}
+  m_Name: SceneProgression
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Scene.SceneProgressionSO
+  description: List of scenes in the project.
+  levels:
+  - {fileID: 11400000, guid: 8acf694b07b9f03419c041a433331701, type: 2}
+  - {fileID: 11400000, guid: 0391d81ad8a97de4d904f366fbc22910, type: 2}
+  currentIndex: 0
