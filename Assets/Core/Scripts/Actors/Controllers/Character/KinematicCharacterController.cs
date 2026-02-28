@@ -42,7 +42,8 @@ namespace CGL.Controller
 
 		protected virtual void Update()
 		{
-			CheckGrounded();
+            Debug.Log($"moveData: {moveData}, isGrounded: {isGrounded}");
+            CheckGrounded();
 			ApplyGravity();
 			Move();
 		}

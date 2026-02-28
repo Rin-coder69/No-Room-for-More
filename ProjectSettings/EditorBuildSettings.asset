@@ -8,6 +8,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/AIExample.unity
+    guid: 6b0ee7e1574f7fa4d9c1157711b64e58
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/AudioExample.unity
+    guid: 5eb064bcedfe56c4ca3f255d96472c86
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/Bootstrapper.unity
+    guid: 5ff4c8af0dac8204cbe0479bf815c474
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/CharacterExample.unity
+    guid: 1a433cc5c8dc7974b86cd070e007ad15
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/CollisionExample.unity
+    guid: 0f576cb69b4c33a4685015d776e693bd
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/ComponentsExample.unity
+    guid: 775fa1d9dcd1fc14da67ce1ccbef7ec9
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/MainMenuExample.unity
+    guid: f9c997f7993f68f4d967b43aed2e464b
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/Weapons.unity
+    guid: a32fd70fd4bfd9c40aeb6963d3fdfd36
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
