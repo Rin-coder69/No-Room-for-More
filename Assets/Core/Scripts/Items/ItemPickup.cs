@@ -19,19 +19,32 @@ namespace CGL.Inventory
 		[Tooltip("Raised when this pickup is collected.")]
 		private EventSO onPickupCollectedEvent;
 
-		private void OnTriggerEnter(Collider other)
-		{
-			if (!other.CompareTag(pickupTag)) return;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag(pickupTag)) return;
 
-			Inventory inventory = other.GetComponent<Inventory>();
-			if (inventory == null) return;
+            // Try LimitedInventory first
+            LimitedInventory limitedInventory = other.GetComponent<LimitedInventory>();
+            if (limitedInventory != null)
+            {
+                if (limitedInventory.AddItem(itemData))
+                {
+                    onPickupCollectedEvent?.RaiseEvent();
+                    gameObject.SetActive(false);
+                }
+                return;
+            }
 
-			// let Inventory handle instantiation and attachment
-			if (inventory.AddItem(itemData))
-			{
-				onPickupCollectedEvent?.RaiseEvent();
-				gameObject.SetActive(false);
-			}
-		}
-	}
+            // Fall back to regular Inventory
+            Inventory inventory = other.GetComponent<Inventory>();
+            if (inventory != null)
+            {
+                if (inventory.AddItem(itemData))
+                {
+                    onPickupCollectedEvent?.RaiseEvent();
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+    }
 }

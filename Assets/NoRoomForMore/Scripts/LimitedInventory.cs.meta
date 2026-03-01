@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 60297031678817843a2d4fcdb0226325
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - onNextEvent: {fileID: 11400000, guid: adb038fb53f94114985123bca422b9a7, type: 2}
+  - onPreviousEvent: {fileID: 11400000, guid: 0664b04ff876a0941b1f36a8d8d55aea, type: 2}
+  - onUseEvent: {instanceID: 0}
+  - onStopUseEvent: {instanceID: 0}
+  - onItemChangedEvent: {instanceID: 0}
+  - onItemAddedEvent: {instanceID: 0}
+  - onItemRemovedEvent: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
