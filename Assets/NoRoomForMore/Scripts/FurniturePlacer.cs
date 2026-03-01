@@ -1,3 +1,4 @@
+using CGL.Inventory;
 using UnityEngine;
 using UnityEngine.InputSystem; 
 
@@ -8,6 +9,9 @@ public class FurniturePlacer : MonoBehaviour
     [Header("References")]
     [SerializeField] private GridManager gridManager;
     [SerializeField] private Camera playerCamera;
+
+    [SerializeField] private LimitedInventory inventory;
+    [SerializeField] private InventoryUI inventoryUI;
 
 
     [Header("Furniture Settings")]
@@ -71,26 +75,37 @@ public class FurniturePlacer : MonoBehaviour
         Vector3 placementPos = previewObject.transform.position;
         Vector2Int gridPos = gridManager.WorldToGrid(placementPos);
 
-        if(gridManager.CanPlaceFurniture(gridPos, furnitureSize))
+        if (gridManager.CanPlaceFurniture(gridPos, furnitureSize))
         {
+            // Place the real furniture
             GameObject placed = Instantiate(selectedFurniture, placementPos, Quaternion.identity);
 
+            // Freeze it in place
             Rigidbody rb = placed.GetComponent<Rigidbody>();
-            if(rb != null)
+            if (rb != null)
             {
-                rb.isKinematic = false; // Enable physics after placement
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
+                rb.isKinematic = true;
             }
+
+            // Mark tiles as occupied in the grid
             gridManager.OccupyTiles(gridPos, furnitureSize);
 
+            // Remove item from inventory
+            Item item = inventory.CurrentItem;
+            inventory.RemoveItem(item);
+
+            // Refresh the UI
+            inventoryUI.RefreshUI();
+
+            // Clean up
             Destroy(previewObject);
             isPlacing = false;
             selectedFurniture = null;
         }
         else
         {
-            // Optionally play an error sound or show feedback
             Debug.Log("Cannot place furniture here!");
         }
     }

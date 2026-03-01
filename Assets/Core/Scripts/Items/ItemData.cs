@@ -86,10 +86,15 @@ namespace CGL.Inventory
 		[SerializeField]
 		[Tooltip("Prefab instantiated when item is equipped.")]
 		public GameObject itemPrefab;
-
-		[SerializeField]
+        [SerializeField]
 		[Tooltip("Prefab instantiated when item is dropped in the world.")]
 		public GameObject pickupPrefab;
+
+		[Header("Furniture Settings")]
+		[SerializeField]
+		[Tooltip("Size of this  furniture in grid tiles (width x lenght")]
+		public Vector2Int furnitureSize = new Vector2Int(1, 1);
+
 
 		private void OnValidate()
 		{
