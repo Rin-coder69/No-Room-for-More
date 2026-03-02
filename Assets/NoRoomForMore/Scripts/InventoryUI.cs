@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.UI;
 using CGL.Inventory;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -16,8 +17,37 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         StartCoroutine(DelayedRefresh());
+        inventory.onInventoryChanged.AddListener(RefreshUI);
     }
 
+    void Update()
+    {
+        if (furniturePlacer.isPlacing) return;
+        // Hotkeys 1-5 to select inventory slots
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            SelectSlot(0);
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            SelectSlot(1);
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+            SelectSlot(2);
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+            SelectSlot(3);
+        if (Keyboard.current.digit5Key.wasPressedThisFrame)
+            SelectSlot(4);
+    }
+    void SelectSlot(int index)
+    {
+        if (index >= inventory.ItemCount) return; // No item in this slot
+
+        Item item = inventory.GetItem(index);
+        if (item == null) return;
+
+        ItemData data = item.GetData();
+        if (data == null) return;
+
+        // Start placing (same as clicking the button)
+        furniturePlacer.StartPlacing(data.itemPrefab, data.furnitureSize);
+    }
     IEnumerator DelayedRefresh()
     {
         // wait one frame for inventory to initialize

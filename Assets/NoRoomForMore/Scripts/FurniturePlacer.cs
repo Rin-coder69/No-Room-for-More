@@ -24,7 +24,7 @@ public class FurniturePlacer : MonoBehaviour
     private GameObject selectedFurniture;
     private GameObject previewObject;
     private Vector2Int furnitureSize;
-    private bool isPlacing = false;
+    public bool isPlacing = false;
     private float currentRotation = 0f;
     private Vector3 previewPosition;
 

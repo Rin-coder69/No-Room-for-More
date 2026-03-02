@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CGL.Events;
+using UnityEngine.Events;
 
 namespace CGL.Inventory
 {
@@ -45,6 +46,8 @@ namespace CGL.Inventory
 		[SerializeField]
 		[Tooltip("Raised when an item is removed from the inventory.")]
 		private EventSO onItemRemovedEvent;
+
+		public UnityEvent onInventoryChanged;
 
 		// runtime list of items in the inventory
 		private List<Item> items = new List<Item>();
@@ -168,6 +171,7 @@ namespace CGL.Inventory
 
             items.Add(item);
 			onItemAddedEvent?.RaiseEvent();
+			onInventoryChanged?.Invoke();
 
 			// auto equip if only item
 			if (items.Count == 1) SwitchItem(0);
@@ -220,9 +224,10 @@ namespace CGL.Inventory
 
 			items.RemoveAt(index);
 			onItemRemovedEvent?.RaiseEvent();
+            onInventoryChanged?.Invoke();
 
-			// equip another item if available
-			if (currentItemIndex == -1 && items.Count > 0)
+            // equip another item if available
+            if (currentItemIndex == -1 && items.Count > 0)
 			{
 				SwitchItem(0);
 			}
