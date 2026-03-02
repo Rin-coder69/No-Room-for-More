@@ -43,6 +43,6 @@ public class GameTimer : MonoBehaviour
     void TimerEnded()
     {
         ScoreManager.Instance.SaveScore();
-        SceneManager.LoadScene("MainMenuExample");
+        SceneManager.LoadScene("MenuBackground");
     }
 }

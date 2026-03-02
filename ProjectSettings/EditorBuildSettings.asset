@@ -15,14 +15,14 @@ EditorBuildSettings:
     path: Assets/Core/Examples/Scenes/AudioExample.unity
     guid: 5eb064bcedfe56c4ca3f255d96472c86
   - enabled: 1
-    path: Assets/Core/Examples/Scenes/Bootstrapper.unity
-    guid: 5ff4c8af0dac8204cbe0479bf815c474
-  - enabled: 1
     path: Assets/NoRoomForMore/Scenes/MenuBackground.unity
     guid: c7f9ab9828799ab4d9368aa9607d6499
   - enabled: 1
     path: Assets/NoRoomForMore/Scenes/Game.unity
     guid: f873e4ef63e64c74b9c992a81772f9df
+  - enabled: 1
+    path: Assets/Core/Examples/Scenes/Bootstrapper.unity
+    guid: 5ff4c8af0dac8204cbe0479bf815c474
   - enabled: 0
     path: Assets/Core/Examples/Scenes/CharacterExample.unity
     guid: 1a433cc5c8dc7974b86cd070e007ad15
