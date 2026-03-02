@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 425550ee0669ef14d8427c81d2c783ca, type: 3}
-  m_Name: BathTub1
+  m_Name: Table
   m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemData
-  id: BathTub1
-  displayName: Bath Tub
-  description: A bath tub.
+  id: FatCat1
+  displayName: Fat Cat
+  description: A REALLY obese cat.
   icon: {fileID: 0}
   itemType: 0
   allowMultiple: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
   animTriggerName: 
   animEquipName: 
   rigLayerWeight: []
-  itemPrefab: {fileID: 2719477849831336773, guid: 8773e718152313b4bbcfbc63b49c63c0, type: 3}
-  pickupPrefab: {fileID: 2719477849831336773, guid: b3f99d828579f5f4eb7742288545d6e0, type: 3}
+  itemPrefab: {fileID: 7778146780503839749, guid: 6e13157f50cb7784f9933daa982df913, type: 3}
+  pickupPrefab: {fileID: 7778146780503839749, guid: 2a87c5349c8bdac4cb041453dd20b316, type: 3}
   furnitureSize: {x: 1, y: 1}
   pickupSound: {fileID: 8300000, guid: 78c89b48978ec7a48887dd2b0394956c, type: 3}

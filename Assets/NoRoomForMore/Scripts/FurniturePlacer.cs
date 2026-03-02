@@ -61,7 +61,7 @@ public class FurniturePlacer : MonoBehaviour
         furnitureSize = size;
         isPlacing = true;
         currentRotation = 0f;
-        playerMovementScript.enabled = false;
+
 
         Vector3 flatForward = playerTransform.forward;
         flatForward.y = 0;
@@ -75,32 +75,52 @@ public class FurniturePlacer : MonoBehaviour
 
     void UpdatePreview()
     {
-        if (ActiveGrid == null) return;
 
         Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 100f, floorLayer))
         {
+            GridManager targetGrid = GetGridAtPosition(hit.point);
+            if (targetGrid == null) return;
             previewPosition = hit.point;
             previewPosition.y = 0;
 
-            Vector3 snappedPos = ActiveGrid.SnapToGrid(previewPosition);
+            Vector3 snappedPos = targetGrid.SnapToGrid(previewPosition);
             previewObject.transform.position = snappedPos;
             previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
 
-            Vector2Int gridPos = ActiveGrid.WorldToGrid(snappedPos);
-            bool canPlace = ActiveGrid.CanPlaceFurniture(gridPos, furnitureSize);
+            Vector2Int gridPos = targetGrid.WorldToGrid(snappedPos);
+            bool canPlace = targetGrid.CanPlaceFurniture(gridPos, furnitureSize);
             SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
         }
     }
 
+    private GridManager GetGridAtPosition(Vector3 worldPos)
+    {
+        foreach (GridManager grid in gridManagers)
+        {
+            Vector2Int gridCoord = grid.WorldToGrid(worldPos);
+
+            // Check if this coordinate is within this grid's bounds
+            if (gridCoord.x >= 0 && gridCoord.x < grid.gridWidth &&
+                gridCoord.y >= 0 && gridCoord.y < grid.gridHeight)
+            {
+                return grid;
+            }
+        }
+
+        return gridManagers.Count > 0 ? gridManagers[0] : null; // Fallback
+    }
+
     void TryPlaceFurniture()
     {
-        if (ActiveGrid == null) return;
-
         Vector3 placementPos = previewObject.transform.position;
-        Vector2Int gridPos = ActiveGrid.WorldToGrid(placementPos);
+
+        GridManager targetGrid = GetGridAtPosition(placementPos);
+        if (targetGrid == null) return;
+
+        Vector2Int gridPos = targetGrid.WorldToGrid(placementPos);
         playerMovementScript.enabled = true;
 
         if (ActiveGrid.CanPlaceFurniture(gridPos, furnitureSize))
@@ -115,10 +135,19 @@ public class FurniturePlacer : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            ActiveGrid.OccupyTiles(gridPos, furnitureSize);
-            ScoreManager.Instance.AddScore(10);
+            targetGrid.OccupyTiles(gridPos, furnitureSize);
 
-            Item item = inventory.CurrentItem;
+            if (ScoreManager.Instance)
+            {
+                ScoreManager.Instance.AddScore(10);
+            }
+            else
+            {
+                Debug.Log("No scoremanager was found.");
+            }
+
+
+                Item item = inventory.CurrentItem;
             inventory.RemoveItem(item);
             inventoryUI.RefreshUI();
 

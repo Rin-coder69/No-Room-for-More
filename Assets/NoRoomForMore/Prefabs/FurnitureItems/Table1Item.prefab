@@ -238,6 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11275f7ad41dc4546bfdf5bc6ff8cd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Furniture
-  itemData: {fileID: 11400000, guid: bbe0a57dbe8c5b441b32d87ada71c677, type: 2}
+  itemData: {fileID: 11400000, guid: d15af920f4f5d7f479b683798b7d678f, type: 2}
   gridSize: {x: 3, y: 3}
   rotationIndex: 0

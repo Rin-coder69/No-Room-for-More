@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2847701725929022126}
   - component: {fileID: 1577962421542472295}
   - component: {fileID: 5436780714388048339}
-  - component: {fileID: 8801928703122992036}
   - component: {fileID: 7123805447148643952}
+  - component: {fileID: 8801928703122992036}
   - component: {fileID: -1640719313583130046}
   m_Layer: 0
   m_Name: GarbagePickup
@@ -94,22 +94,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8801928703122992036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2719901599194040122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae9f262b942ecd54b99959d7346a6052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemPickup
-  itemData: {fileID: 11400000, guid: 4b1b2ec3d4fc8d541b69ee75b9738d0f, type: 2}
-  pickupTag: Player
-  onPickupCollectedEvent: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!65 &7123805447148643952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,6 +115,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38747227, y: 0.54300416, z: 0.38747227}
   m_Center: {x: 0, y: 0.27150208, z: 0}
+--- !u!114 &8801928703122992036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719901599194040122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9f262b942ecd54b99959d7346a6052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemPickup
+  itemData: {fileID: 11400000, guid: 4b1b2ec3d4fc8d541b69ee75b9738d0f, type: 2}
+  pickupTag: Player
+  onPickupCollectedEvent: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!54 &-1640719313583130046
 Rigidbody:
   m_ObjectHideFlags: 0
