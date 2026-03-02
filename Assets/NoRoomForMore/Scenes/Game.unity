@@ -15042,6 +15042,50 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 2089593946}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: gridManagers.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1631772564}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2068105437}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1312511888}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 978737189}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1475980455}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1345109216}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1704075640}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1835013191}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[8]'
+      value: 
+      objectReference: {fileID: 471033896}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1239390850}
     - target: {fileID: 7942253798033516599, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
       propertyPath: m_Name
       value: true

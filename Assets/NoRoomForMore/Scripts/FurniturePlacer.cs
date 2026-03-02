@@ -1,17 +1,17 @@
 using CGL.Controller;
 using CGL.Inventory;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FurniturePlacer : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GridManager gridManager;
+    [SerializeField] private List<GridManager> gridManagers;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private LimitedInventory inventory;
     [SerializeField] private InventoryUI inventoryUI;
     [SerializeField] private Transform playerTransform;
-
     [SerializeField] private FPSKinematicCharacterController playerMovementScript;
 
     [Header("Furniture Settings")]
@@ -27,6 +27,9 @@ public class FurniturePlacer : MonoBehaviour
     public bool isPlacing = false;
     private float currentRotation = 0f;
     private Vector3 previewPosition;
+
+    // helper to get the active grid manager
+    private GridManager ActiveGrid => gridManagers != null && gridManagers.Count > 0 ? gridManagers[0] : null;
 
     void Update()
     {
@@ -60,7 +63,6 @@ public class FurniturePlacer : MonoBehaviour
         currentRotation = 0f;
         playerMovementScript.enabled = false;
 
-        // spawn preview in front of player
         Vector3 flatForward = playerTransform.forward;
         flatForward.y = 0;
         flatForward.Normalize();
@@ -71,61 +73,37 @@ public class FurniturePlacer : MonoBehaviour
         DisablePreviewPhysics(previewObject);
     }
 
-    //void UpdatePreview()
-    //{
-    //    // move preview with arrow keys
-    //    if (Keyboard.current.upArrowKey.isPressed)
-    //        previewPosition += playerTransform.forward * moveSpeed * Time.deltaTime;
-
-    //    if (Keyboard.current.downArrowKey.isPressed)
-    //        previewPosition -= playerTransform.forward * moveSpeed * Time.deltaTime;
-
-    //    if (Keyboard.current.leftArrowKey.isPressed)
-    //        previewPosition -= playerTransform.right * moveSpeed * Time.deltaTime;
-
-    //    if (Keyboard.current.rightArrowKey.isPressed)
-    //        previewPosition += playerTransform.right * moveSpeed * Time.deltaTime;
-
-    //    // keep on floor level
-    //    previewPosition.y = 0;
-
-    //    // snap to grid
-    //    Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
-    //    previewObject.transform.position = snappedPos;
-    //    previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
-
-    //    Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
-    //    bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
-    //    SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
-    //}
-
     void UpdatePreview()
     {
+        if (ActiveGrid == null) return;
+
         Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 10f, floorLayer))
+        if (Physics.Raycast(ray, out hit, 100f, floorLayer))
         {
             previewPosition = hit.point;
             previewPosition.y = 0;
 
-            Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
+            Vector3 snappedPos = ActiveGrid.SnapToGrid(previewPosition);
             previewObject.transform.position = snappedPos;
             previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
 
-            Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
-            bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
+            Vector2Int gridPos = ActiveGrid.WorldToGrid(snappedPos);
+            bool canPlace = ActiveGrid.CanPlaceFurniture(gridPos, furnitureSize);
             SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
         }
     }
 
     void TryPlaceFurniture()
     {
+        if (ActiveGrid == null) return;
+
         Vector3 placementPos = previewObject.transform.position;
-        Vector2Int gridPos = gridManager.WorldToGrid(placementPos);
+        Vector2Int gridPos = ActiveGrid.WorldToGrid(placementPos);
         playerMovementScript.enabled = true;
 
-        if (gridManager.CanPlaceFurniture(gridPos, furnitureSize))
+        if (ActiveGrid.CanPlaceFurniture(gridPos, furnitureSize))
         {
             GameObject placed = Instantiate(selectedFurniture, placementPos, Quaternion.Euler(0, currentRotation, 0));
 
@@ -137,7 +115,7 @@ public class FurniturePlacer : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            gridManager.OccupyTiles(gridPos, furnitureSize);
+            ActiveGrid.OccupyTiles(gridPos, furnitureSize);
             ScoreManager.Instance.AddScore(10);
 
             Item item = inventory.CurrentItem;
