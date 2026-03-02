@@ -43,7 +43,8 @@ public class InventoryUI : MonoBehaviour
 
             GameObject slot = Instantiate(slotPrefab, slotContainer);
 
-            Image icon = slot.GetComponentInChildren<Image>();
+            Image icon = slot.transform.Find("Icon").GetComponent<Image>();
+            Debug.Log("Icon found: " + (icon != null) + " | Sprite assigned: " + (data.icon != null));
             if (icon != null && data.icon != null)
                 icon.sprite = data.icon;
 

@@ -1,86 +1,114 @@
+using CGL.Controller;
 using CGL.Inventory;
 using UnityEngine;
-using UnityEngine.InputSystem; 
-
+using UnityEngine.InputSystem;
 
 public class FurniturePlacer : MonoBehaviour
 {
-
     [Header("References")]
     [SerializeField] private GridManager gridManager;
     [SerializeField] private Camera playerCamera;
-
     [SerializeField] private LimitedInventory inventory;
     [SerializeField] private InventoryUI inventoryUI;
+    [SerializeField] private Transform playerTransform;
 
+    [SerializeField] private FPSKinematicCharacterController playerMovementScript;
 
     [Header("Furniture Settings")]
     [SerializeField] private LayerMask floorLayer;
     [SerializeField] private Material ValidPlacementMatieral;
     [SerializeField] private Material InvalidPlacementMaterial;
+    [SerializeField] private float rotationStep = 90f;
+    [SerializeField] private float moveSpeed = 5f;
 
     private GameObject selectedFurniture;
     private GameObject previewObject;
-    private Vector2Int furnitureSize; // Size in grid tiles 
+    private Vector2Int furnitureSize;
     private bool isPlacing = false;
+    private float currentRotation = 0f;
+    private Vector3 previewPosition;
 
-   void Update()
+    void Update()
     {
-        if(isPlacing && previewObject != null)
+        if (isPlacing && previewObject != null)
         {
             UpdatePreview();
-            if(Mouse.current.leftButton.wasPressedThisFrame)
+
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                currentRotation += rotationStep;
+                previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+            }
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 TryPlaceFurniture();
             }
 
-            if(Mouse.current.rightButton.wasPressedThisFrame)
+            if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 CancelPlacement();
             }
         }
     }
 
-
     public void StartPlacing(GameObject furniturePrefab, Vector2Int size)
     {
         selectedFurniture = furniturePrefab;
         furnitureSize = size;
         isPlacing = true;
-        // Create preview object
+        currentRotation = 0f;
+        playerMovementScript.enabled = false;
+
+        // spawn preview in front of player
+        Vector3 flatForward = playerTransform.forward;
+        flatForward.y = 0;
+        flatForward.Normalize();
+        previewPosition = playerTransform.position + flatForward * 3f;
+        previewPosition.y = 0;
 
         previewObject = Instantiate(selectedFurniture);
         DisablePreviewPhysics(previewObject);
-        isPlacing = true;
     }
 
     void UpdatePreview()
     {
-        Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if(Physics.Raycast(ray, out RaycastHit hit, 100f,floorLayer))
-        {
-            Vector3 snappedPos = gridManager.SnapToGrid(hit.point);
-            previewObject.transform.position = snappedPos;
+        // move preview with arrow keys
+        if (Keyboard.current.upArrowKey.isPressed)
+            previewPosition += playerTransform.forward * moveSpeed * Time.deltaTime;
 
-            Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
-            bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
+        if (Keyboard.current.downArrowKey.isPressed)
+            previewPosition -= playerTransform.forward * moveSpeed * Time.deltaTime;
 
-            SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
-        }
+        if (Keyboard.current.leftArrowKey.isPressed)
+            previewPosition -= playerTransform.right * moveSpeed * Time.deltaTime;
+
+        if (Keyboard.current.rightArrowKey.isPressed)
+            previewPosition += playerTransform.right * moveSpeed * Time.deltaTime;
+
+        // keep on floor level
+        previewPosition.y = 0;
+
+        // snap to grid
+        Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
+        previewObject.transform.position = snappedPos;
+        previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+
+        Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
+        bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
+        SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
     }
-
 
     void TryPlaceFurniture()
     {
         Vector3 placementPos = previewObject.transform.position;
         Vector2Int gridPos = gridManager.WorldToGrid(placementPos);
+        playerMovementScript.enabled = true;
 
         if (gridManager.CanPlaceFurniture(gridPos, furnitureSize))
         {
-            // Place the real furniture
-            GameObject placed = Instantiate(selectedFurniture, placementPos, Quaternion.identity);
+            GameObject placed = Instantiate(selectedFurniture, placementPos, Quaternion.Euler(0, currentRotation, 0));
 
-            // Freeze it in place
             Rigidbody rb = placed.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -89,20 +117,16 @@ public class FurniturePlacer : MonoBehaviour
                 rb.isKinematic = true;
             }
 
-            // Mark tiles as occupied in the grid
             gridManager.OccupyTiles(gridPos, furnitureSize);
 
-            // Remove item from inventory
             Item item = inventory.CurrentItem;
             inventory.RemoveItem(item);
-
-            // Refresh the UI
             inventoryUI.RefreshUI();
 
-            // Clean up
             Destroy(previewObject);
             isPlacing = false;
             selectedFurniture = null;
+            currentRotation = 0f;
         }
         else
         {
@@ -115,30 +139,23 @@ public class FurniturePlacer : MonoBehaviour
         Destroy(previewObject);
         isPlacing = false;
         selectedFurniture = null;
+        currentRotation = 0f;
+        playerMovementScript.enabled = true;
     }
 
     void DisablePreviewPhysics(GameObject obj)
     {
-        // Turn off physics on the preview ghost
         Rigidbody rb = obj.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-        }
+        if (rb != null) rb.isKinematic = true;
 
-        // Turn off colliders on the preview ghost
         foreach (Collider col in obj.GetComponentsInChildren<Collider>())
-        {
             col.enabled = false;
-        }
     }
 
     void SetPreviewMaterial(Material mat)
     {
         if (mat == null) return;
         foreach (Renderer rend in previewObject.GetComponentsInChildren<Renderer>())
-        {
             rend.material = mat;
-        }
     }
 }
