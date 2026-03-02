@@ -80,7 +80,7 @@ public class FurniturePlacer : MonoBehaviour
         Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 100f, floorLayer))
+        if (Physics.Raycast(ray, out hit, 10f, floorLayer))
         {
             previewPosition = hit.point;
             previewPosition.y = 0;
