@@ -14,6 +14,7 @@ public class Van : MonoBehaviour
     [SerializeField] int minFurniture = 15;
     [SerializeField] int maxFurniture = 15;
     [SerializeField] GameObject[] allFurniturePrefabs;
+    [SerializeField] AudioSource sound;
 
     [SerializeField] float interactRange = 3f;
     private Transform player;
@@ -47,13 +48,13 @@ public class Van : MonoBehaviour
         }
 
         VanDoor.SetActive(true);
-        //Audio.Play();
+        sound.Play();
 
         int randomIndex = Random.Range(0, Furn.Length);
         GameObject furniture = Instantiate(Furn[randomIndex], spawnPoint.position, Random.rotation);
 
         List<GameObject> furnList = new List<GameObject>(Furn);
-        furnList.RemoveAt(randomIndex);
+        furnList.RemoveAt(randomIndex); 
         Furn = furnList.ToArray();
 
         Rigidbody rb = furniture.GetComponent<Rigidbody>();

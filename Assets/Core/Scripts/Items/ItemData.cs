@@ -95,8 +95,11 @@ namespace CGL.Inventory
 		[Tooltip("Size of this  furniture in grid tiles (width x lenght")]
 		public Vector2Int furnitureSize = new Vector2Int(1, 1);
 
+        [SerializeField]
+        public AudioClip pickupSound;
 
-		private void OnValidate()
+
+        private void OnValidate()
 		{
 			if (string.IsNullOrEmpty(id))
 				Debug.LogWarning($"Item {name} is missing an ID!", this);

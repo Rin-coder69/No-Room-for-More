@@ -164,6 +164,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: bbe0a57dbe8c5b441b32d87ada71c677, type: 2}
   pickupTag: Player
   onPickupCollectedEvent: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!54 &5478287967486407791
 Rigidbody:
   m_ObjectHideFlags: 0

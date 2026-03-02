@@ -27,3 +27,5 @@ MonoBehaviour:
   rigLayerWeight: []
   itemPrefab: {fileID: 5473303626281371012, guid: 63b5a341c0012d84facd54f9b2ba9455, type: 3}
   pickupPrefab: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+  furnitureSize: {x: 1, y: 1}
+  pickupSound: {fileID: 8300000, guid: 558f1b49d1168624e9e7614a660c939b, type: 3}

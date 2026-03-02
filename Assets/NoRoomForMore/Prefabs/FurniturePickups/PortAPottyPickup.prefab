@@ -157,6 +157,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: fb9b49b9dd4ae9640b21b87a4a48fa53, type: 2}
   pickupTag: Player
   onPickupCollectedEvent: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &4975193205864286565
 GameObject:
   m_ObjectHideFlags: 0

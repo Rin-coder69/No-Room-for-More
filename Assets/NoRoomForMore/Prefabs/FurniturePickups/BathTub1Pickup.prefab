@@ -210,7 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemPickup
   itemData: {fileID: 11400000, guid: feee76463e2238045b41e94474f07eaf, type: 2}
   pickupTag: Player
-  onPickupCollectedEvent: {fileID: 11400000, guid: d69a3e0adb8767c42a6f5e0315e1debe, type: 2}
+  onPickupCollectedEvent: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &6899304167574011751
 GameObject:
   m_ObjectHideFlags: 0
