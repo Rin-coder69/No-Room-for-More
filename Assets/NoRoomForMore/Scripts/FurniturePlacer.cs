@@ -71,32 +71,52 @@ public class FurniturePlacer : MonoBehaviour
         DisablePreviewPhysics(previewObject);
     }
 
+    //void UpdatePreview()
+    //{
+    //    // move preview with arrow keys
+    //    if (Keyboard.current.upArrowKey.isPressed)
+    //        previewPosition += playerTransform.forward * moveSpeed * Time.deltaTime;
+
+    //    if (Keyboard.current.downArrowKey.isPressed)
+    //        previewPosition -= playerTransform.forward * moveSpeed * Time.deltaTime;
+
+    //    if (Keyboard.current.leftArrowKey.isPressed)
+    //        previewPosition -= playerTransform.right * moveSpeed * Time.deltaTime;
+
+    //    if (Keyboard.current.rightArrowKey.isPressed)
+    //        previewPosition += playerTransform.right * moveSpeed * Time.deltaTime;
+
+    //    // keep on floor level
+    //    previewPosition.y = 0;
+
+    //    // snap to grid
+    //    Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
+    //    previewObject.transform.position = snappedPos;
+    //    previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+
+    //    Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
+    //    bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
+    //    SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
+    //}
+
     void UpdatePreview()
     {
-        // move preview with arrow keys
-        if (Keyboard.current.upArrowKey.isPressed)
-            previewPosition += playerTransform.forward * moveSpeed * Time.deltaTime;
+        Ray ray = playerCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
 
-        if (Keyboard.current.downArrowKey.isPressed)
-            previewPosition -= playerTransform.forward * moveSpeed * Time.deltaTime;
+        if (Physics.Raycast(ray, out hit, 10f, floorLayer))
+        {
+            previewPosition = hit.point;
+            previewPosition.y = 0;
 
-        if (Keyboard.current.leftArrowKey.isPressed)
-            previewPosition -= playerTransform.right * moveSpeed * Time.deltaTime;
+            Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
+            previewObject.transform.position = snappedPos;
+            previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
 
-        if (Keyboard.current.rightArrowKey.isPressed)
-            previewPosition += playerTransform.right * moveSpeed * Time.deltaTime;
-
-        // keep on floor level
-        previewPosition.y = 0;
-
-        // snap to grid
-        Vector3 snappedPos = gridManager.SnapToGrid(previewPosition);
-        previewObject.transform.position = snappedPos;
-        previewObject.transform.rotation = Quaternion.Euler(0, currentRotation, 0);
-
-        Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
-        bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
-        SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
+            Vector2Int gridPos = gridManager.WorldToGrid(snappedPos);
+            bool canPlace = gridManager.CanPlaceFurniture(gridPos, furnitureSize);
+            SetPreviewMaterial(canPlace ? ValidPlacementMatieral : InvalidPlacementMaterial);
+        }
     }
 
     void TryPlaceFurniture()

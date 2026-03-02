@@ -30,7 +30,7 @@ public class GridManager : MonoBehaviour
     // Convert grid coordinates to world position
     public Vector3 GridToWorld(Vector2Int gridPos)
     {
-        return new Vector3(gridPos.x * tileSize, 0, gridPos.y * tileSize);
+        return new Vector3(gridPos.x * tileSize, 0, gridPos.y * tileSize) + transform.position;
     }
 
     // Snap world position to grid
