@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425550ee0669ef14d8427c81d2c783ca, type: 3}
+  m_Name: PotPlant1
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemData
+  id: PotPlant1
+  displayName: Pot Plant
+  description: A plant in a pot.
+  icon: {fileID: 0}
+  itemType: 0
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: 
+  animTriggerName: 
+  animEquipName: 
+  rigLayerWeight: []
+  itemPrefab: {fileID: 4236140255691202895, guid: 107a002cde3f4ec4593514f0b8a77ed6, type: 3}
+  pickupPrefab: {fileID: 4236140255691202895, guid: b9dc7d00ab363f143b9942cc2bde5d8f, type: 3}
+  furnitureSize: {x: 1, y: 1}

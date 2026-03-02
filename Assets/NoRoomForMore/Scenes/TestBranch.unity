@@ -646,11 +646,79 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: minFurniture
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
       propertyPath: interactRange
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
       propertyPath: 'Furn.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: allFurniturePrefabs.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 722336767578758291, guid: cb4e581334ac7f346bc81a2c2513d72e, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4578247571984902924, guid: 5ab100d4702f58f4f932e4695d20bcd3, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6315646698983143882, guid: f56bdbbb189061943a14c7e581498a0a, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9099624268593843174, guid: 4ab8123f6152b9c46988c9f4617a70e7, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2719477849831336773, guid: b3f99d828579f5f4eb7742288545d6e0, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 7778146780503839749, guid: 2a87c5349c8bdac4cb041453dd20b316, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[7]'
+      value: 
+      objectReference: {fileID: 3220756189066999093, guid: cadfbb4953f4e4b48a67ca66b544ab90, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[8]'
+      value: 
+      objectReference: {fileID: 4236140255691202895, guid: b9dc7d00ab363f143b9942cc2bde5d8f, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[9]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[10]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[11]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[12]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[13]'
+      value: 
+      objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+    - target: {fileID: 6907558721409779961, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}
+      propertyPath: 'allFurniturePrefabs.Array.data[14]'
       value: 
       objectReference: {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
     - target: {fileID: 7203736295296249353, guid: 3f65d5dc403ff9242acb8bc8c9c532f5, type: 3}

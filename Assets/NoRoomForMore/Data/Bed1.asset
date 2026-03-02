@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425550ee0669ef14d8427c81d2c783ca, type: 3}
+  m_Name: Bed1
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemData
+  id: Bed1
+  displayName: Red Bed
+  description: A red bed.
+  icon: {fileID: 0}
+  itemType: 0
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: 
+  animTriggerName: 
+  animEquipName: 
+  rigLayerWeight: []
+  itemPrefab: {fileID: 722336767578758291, guid: b0335d9bb50fc0f4aa0f991895d22f27, type: 3}
+  pickupPrefab: {fileID: 722336767578758291, guid: cb4e581334ac7f346bc81a2c2513d72e, type: 3}
+  furnitureSize: {x: 1, y: 1}
