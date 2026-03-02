@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 6907558721409779961}
   - component: {fileID: 858698657321421427}
   - component: {fileID: 3312424220278477505}
+  - component: {fileID: 247959370238167493}
   m_Layer: 0
   m_Name: VanBig 1
   m_TagString: Untagged
@@ -209,7 +210,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1896960714209598825}
@@ -237,6 +238,24 @@ MonoBehaviour:
   spawnPoint: {fileID: 6205247588664055759}
   launchForce: 5
   upwardForce: 2
+  minFurniture: 15
+  maxFurniture: 15
+  allFurniturePrefabs:
+  - {fileID: 5473303626281371012, guid: b750b44a976c20e4d998f87f447fde19, type: 3}
+  - {fileID: 722336767578758291, guid: cb4e581334ac7f346bc81a2c2513d72e, type: 3}
+  - {fileID: 4578247571984902924, guid: 5ab100d4702f58f4f932e4695d20bcd3, type: 3}
+  - {fileID: 6315646698983143882, guid: f56bdbbb189061943a14c7e581498a0a, type: 3}
+  - {fileID: 9099624268593843174, guid: 4ab8123f6152b9c46988c9f4617a70e7, type: 3}
+  - {fileID: 2719477849831336773, guid: b3f99d828579f5f4eb7742288545d6e0, type: 3}
+  - {fileID: 7778146780503839749, guid: 2a87c5349c8bdac4cb041453dd20b316, type: 3}
+  - {fileID: 3220756189066999093, guid: cadfbb4953f4e4b48a67ca66b544ab90, type: 3}
+  - {fileID: 4236140255691202895, guid: b9dc7d00ab363f143b9942cc2bde5d8f, type: 3}
+  - {fileID: 3712635433816913990, guid: d5f5ee052a4a9c949b8d92d56aa02025, type: 3}
+  - {fileID: 643969685799252954, guid: 2ec84b0919dc56840b0099ec668e4120, type: 3}
+  - {fileID: 8091183096410712999, guid: f617d28b47e01694cbc9b147b55a288a, type: 3}
+  - {fileID: 2719901599194040122, guid: 23735e50bb606d740bb90222ea4146ce, type: 3}
+  - {fileID: 47253458672584243, guid: dde3e97f532c8a74ab823d646fce5de0, type: 3}
+  - {fileID: 1865427494496009815, guid: 2fc525cb6cd0f39439621773cced509b, type: 3}
   interactRange: 3
 --- !u!33 &858698657321421427
 MeshFilter:
@@ -296,6 +315,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &247959370238167493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005531266301172335}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.326177, y: 3.6470537, z: 8.897326}
+  m_Center: {x: -0.00018632412, y: 2.2150202, z: -1.3878745}
 --- !u!1 &3298137453123649870
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +451,7 @@ Transform:
   m_GameObject: {fileID: 5251086119932763457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.08, y: 3.17, z: -5.799}
+  m_LocalPosition: {x: 0.08, y: 3.17, z: -7.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

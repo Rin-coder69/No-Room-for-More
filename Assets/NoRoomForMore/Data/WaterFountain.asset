@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425550ee0669ef14d8427c81d2c783ca, type: 3}
+  m_Name: WaterFountain
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemData
+  id: WaterFountain1
+  displayName: Water Fountain
+  description: What...? Why is... nevermind.
+  icon: {fileID: 0}
+  itemType: 0
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: 
+  animTriggerName: 
+  animEquipName: 
+  rigLayerWeight: []
+  itemPrefab: {fileID: 47253458672584243, guid: 65116031d03f9bd4fb26808e94b77ae8, type: 3}
+  pickupPrefab: {fileID: 47253458672584243, guid: dde3e97f532c8a74ab823d646fce5de0, type: 3}
+  furnitureSize: {x: 1, y: 1}

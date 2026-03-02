@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425550ee0669ef14d8427c81d2c783ca, type: 3}
+  m_Name: SantaClaus
+  m_EditorClassIdentifier: Assembly-CSharp::CGL.Inventory.ItemData
+  id: Santa1
+  displayName: Santa
+  description: SANTA CLAUS?!
+  icon: {fileID: 0}
+  itemType: 0
+  allowMultiple: 0
+  maxStackSize: 1
+  equipable: 1
+  usageType: 0
+  attachBone: 
+  animTriggerName: 
+  animEquipName: 
+  rigLayerWeight: []
+  itemPrefab: {fileID: 3712635433816913990, guid: f0e5b331336137c4b8c8b7d7f4d9dd4e, type: 3}
+  pickupPrefab: {fileID: 3712635433816913990, guid: d5f5ee052a4a9c949b8d92d56aa02025, type: 3}
+  furnitureSize: {x: 1, y: 1}
