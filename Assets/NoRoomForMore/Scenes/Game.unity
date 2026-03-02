@@ -407,7 +407,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2429916385330670957, guid: b3b9b140c26811e4991c7832b9db9e16, type: 3}
       propertyPath: timeLimit
-      value: 10
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2511205436819888761, guid: b3b9b140c26811e4991c7832b9db9e16, type: 3}
       propertyPath: m_Pivot.x
