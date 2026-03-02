@@ -138,9 +138,17 @@ public class FurniturePlacer : MonoBehaviour
             }
 
             gridManager.OccupyTiles(gridPos, furnitureSize);
-            ScoreManager.Instance.AddScore(10);
+            
+            if (ScoreManager.Instance) // check if manager exists
+            {
+                ScoreManager.Instance.AddScore(10);
+            }
+            else
+            {
+                Debug.Log("A score manager doesn't exist. Please add one!");
+            }
 
-            Item item = inventory.CurrentItem;
+                Item item = inventory.CurrentItem;
             inventory.RemoveItem(item);
             inventoryUI.RefreshUI();
 
