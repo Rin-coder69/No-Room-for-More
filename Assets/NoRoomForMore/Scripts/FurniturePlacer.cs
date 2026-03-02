@@ -118,6 +118,7 @@ public class FurniturePlacer : MonoBehaviour
             }
 
             gridManager.OccupyTiles(gridPos, furnitureSize);
+            ScoreManager.Instance.AddScore(10);
 
             Item item = inventory.CurrentItem;
             inventory.RemoveItem(item);

@@ -20,14 +20,18 @@ public class Van : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+            player = playerObj.transform;
     }
 
     void Update()
     {
+        if (player == null) return;
+
         float distance = Vector3.Distance(player.position, transform.position);
 
-        if (distance <= interactRange && Keyboard.current.fKey.wasPressedThisFrame)
+        if (distance <= interactRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
             Interact();
         }
