@@ -35,7 +35,11 @@ namespace CGL.Inventory
                     {
                         audioSource.PlayOneShot(itemData.pickupSound);
                     }
-                    onPickupCollectedEvent?.RaiseEvent();
+                    else
+                    {
+                        Debug.Log($"No audio is playing on ItemPickup.");
+                    }
+                        onPickupCollectedEvent?.RaiseEvent();
                     gameObject.SetActive(false);
                 }
                 return;
