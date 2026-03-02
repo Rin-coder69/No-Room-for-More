@@ -50,8 +50,12 @@ public class InventoryUI : MonoBehaviour
     }
     IEnumerator DelayedRefresh()
     {
-        // wait one frame for inventory to initialize
         yield return null;
+        if (inventory == null)
+        {
+            Debug.LogError("Inventory is not assigned in InventoryUI!");
+            yield break;
+        }
         Debug.Log("Delayed refresh, item count: " + inventory.ItemCount);
         RefreshUI();
     }
