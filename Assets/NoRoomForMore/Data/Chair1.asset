@@ -28,3 +28,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 3220756189066999093, guid: 26cc945e70eee574b9a5d2c0e0575858, type: 3}
   pickupPrefab: {fileID: 3220756189066999093, guid: cadfbb4953f4e4b48a67ca66b544ab90, type: 3}
   furnitureSize: {x: 1, y: 1}
+  pickupSound: {fileID: 8300000, guid: 78c89b48978ec7a48887dd2b0394956c, type: 3}

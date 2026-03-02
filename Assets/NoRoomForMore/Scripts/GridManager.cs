@@ -3,8 +3,8 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [Header("Grid Settings")]
-    [SerializeField] private int gridWidth = 100;  // 10 meters = 100 tiles
-    [SerializeField] private int gridHeight = 100;
+    [SerializeField] public int gridWidth = 100;  // 10 meters = 100 tiles
+    [SerializeField] public int gridHeight = 100;
     [SerializeField] private float tileSize = 0.1f; // 10 tiles per meter
 
     [Header("Debug")]
