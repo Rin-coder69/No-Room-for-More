@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Van : MonoBehaviour
 {
-    //[SerializeField] AudioSource Audio;
     [SerializeField] GameObject VanDoor;
     [SerializeField] GameObject[] Furn;
     [SerializeField] Transform spawnPoint;
@@ -16,8 +15,11 @@ public class Van : MonoBehaviour
     [SerializeField] GameObject[] allFurniturePrefabs;
     [SerializeField] AudioSource sound;
 
+    [SerializeField] BoxCollider boxCollider;
     [SerializeField] float interactRange = 3f;
+
     private Transform player;
+    private bool playerInRange = false;
 
     void Start()
     {
@@ -28,18 +30,32 @@ public class Van : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
-
-        float distance = Vector3.Distance(player.position, transform.position);
-
-        if (distance <= interactRange && Keyboard.current.eKey.wasPressedThisFrame)
+        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
             Interact();
         }
     }
 
+    // Trigger-based approach - most efficient
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+
     void Interact()
     {
+
         // empty van
         if (Furn.Length == 0)
         {

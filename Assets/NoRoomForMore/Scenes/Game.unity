@@ -25392,6 +25392,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1065120921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &767780798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767780799}
+  - component: {fileID: 767780800}
+  m_Layer: 0
+  m_Name: CursorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767780799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767780798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235757662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767780800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767780798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea60a558c65807948a48dd3265b3afeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CursorManager
+  axisController: {fileID: 1940551170}
 --- !u!1 &768843264
 GameObject:
   m_ObjectHideFlags: 0
@@ -35244,6 +35289,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1540113244227919362, guid: 7ba87711a271fac4a98e0b15044cf951, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1842133405}
+    - targetCorrespondingSourceObject: {fileID: 1540113244227919362, guid: 7ba87711a271fac4a98e0b15044cf951, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767780799}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba87711a271fac4a98e0b15044cf951, type: 3}
 --- !u!4 &1235757662 stripped
@@ -55415,6 +55463,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1940551170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4328004003941817814, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+  m_PrefabInstance: {fileID: 466453970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineInputAxisController
 --- !u!1 &1948514647
 GameObject:
   m_ObjectHideFlags: 0
