@@ -1027,6 +1027,14 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 961739752}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: gridManagers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671043283467148628, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
+      propertyPath: 'gridManagers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 40221027}
     - target: {fileID: 7942253798033516599, guid: 961a7f46a60cf1c439e0318427d73ffb, type: 3}
       propertyPath: m_Name
       value: Player
