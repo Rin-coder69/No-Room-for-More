@@ -6,6 +6,7 @@ namespace CGL.UI
 {
 	public class PauseScreen : MonoBehaviour
 	{
+
 		[SerializeField]
 		[Tooltip("UI panel to show when the game is paused.")]
 		private GameObject pausePanel;
@@ -45,6 +46,7 @@ namespace CGL.UI
 		public void OnResume()
 		{
 			onPauseEvent?.RaiseEvent();
+			
 		}
 
 		public void OnQuit()

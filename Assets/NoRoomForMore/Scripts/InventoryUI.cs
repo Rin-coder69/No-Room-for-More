@@ -46,6 +46,7 @@ public class InventoryUI : MonoBehaviour
         if (data == null) return;
 
         // Start placing (same as clicking the button)
+        inventory.SwitchItem(index);
         furniturePlacer.StartPlacing(data.itemPrefab, data.furnitureSize);
     }
     IEnumerator DelayedRefresh()

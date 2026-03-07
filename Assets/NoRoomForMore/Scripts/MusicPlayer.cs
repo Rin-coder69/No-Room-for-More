@@ -20,6 +20,7 @@ public class MusicPlayer : MonoBehaviour
         // Play it
         audioSource.clip = selectedTrack;
         audioSource.loop = true; // Loop the music
+        audioSource.volume = 0.01f;
         audioSource.Play();
 
         Debug.Log($"Playing: {selectedTrack.name}");

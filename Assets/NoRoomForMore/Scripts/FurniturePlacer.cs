@@ -123,7 +123,7 @@ public class FurniturePlacer : MonoBehaviour
         Vector2Int gridPos = targetGrid.WorldToGrid(placementPos);
         playerMovementScript.enabled = true;
 
-        if (ActiveGrid.CanPlaceFurniture(gridPos, furnitureSize))
+        if (targetGrid.CanPlaceFurniture(gridPos, furnitureSize))
         {
             GameObject placed = Instantiate(selectedFurniture, placementPos, Quaternion.Euler(0, currentRotation, 0));
 
@@ -147,7 +147,7 @@ public class FurniturePlacer : MonoBehaviour
             }
 
 
-                Item item = inventory.CurrentItem;
+            Item item = inventory.CurrentItem;
             inventory.RemoveItem(item);
             inventoryUI.RefreshUI();
 
