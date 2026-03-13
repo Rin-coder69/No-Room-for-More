@@ -19,8 +19,6 @@ namespace CGL.Inventory
 		[Tooltip("Raised when this pickup is collected.")]
 		private EventSO onPickupCollectedEvent;
 
-        [SerializeField] private AudioSource audioSource;
-
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag(pickupTag)) return;
@@ -31,9 +29,9 @@ namespace CGL.Inventory
             {
                 if (limitedInventory.AddItem(itemData))
                 {
-                    if (audioSource != null)
+                    if (itemData.pickupSound != null)
                     {
-                        audioSource.PlayOneShot(itemData.pickupSound);
+                        AudioSource.PlayClipAtPoint(itemData.pickupSound, transform.position);
                     }
                     else
                     {

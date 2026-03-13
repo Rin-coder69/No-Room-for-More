@@ -1,5 +1,6 @@
 using CGL.Controller;
 using CGL.Inventory;
+using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class FurniturePlacer : MonoBehaviour
     [SerializeField] private InventoryUI inventoryUI;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private FPSKinematicCharacterController playerMovementScript;
+    [SerializeField] private ItemData itemData;
 
     [Header("Furniture Settings")]
     [SerializeField] private LayerMask floorLayer;
@@ -27,6 +29,9 @@ public class FurniturePlacer : MonoBehaviour
     public bool isPlacing = false;
     private float currentRotation = 0f;
     private Vector3 previewPosition;
+    private ItemData currentItemData;
+
+    public ItemData ItemData => itemData;
 
     // helper to get the active grid manager
     private GridManager ActiveGrid => gridManagers != null && gridManagers.Count > 0 ? gridManagers[0] : null;
@@ -58,6 +63,7 @@ public class FurniturePlacer : MonoBehaviour
     public void StartPlacing(GameObject furniturePrefab, Vector2Int size)
     {
         selectedFurniture = furniturePrefab;
+        currentItemData = itemData;
         furnitureSize = size;
         isPlacing = true;
         currentRotation = 0f;
@@ -137,23 +143,39 @@ public class FurniturePlacer : MonoBehaviour
 
             targetGrid.OccupyTiles(gridPos, furnitureSize);
 
-            if (ScoreManager.Instance)
-            {
-                ScoreManager.Instance.AddScore(10);
-            }
-            else
-            {
-                Debug.Log("No scoremanager was found.");
-            }
-
-
+            // Get ItemData from current inventory item using GetData()
             Item item = inventory.CurrentItem;
+            if (item != null)
+            {
+                ItemData itemData = item.GetData(); // Call the abstract method
+
+                if (itemData != null)
+                {
+                    // Add score
+                    if (ScoreManager.Instance)
+                    {
+                        ScoreManager.Instance.AddScore(itemData.itemScore);
+                    }
+                    else
+                    {
+                        Debug.Log("No ScoreManager was found.");
+                    }
+
+                    // Play placement sound
+                    if (itemData.placeSound != null)
+                    {
+                        AudioSource.PlayClipAtPoint(itemData.placeSound, placementPos);
+                    }
+                }
+            }
+
             inventory.RemoveItem(item);
             inventoryUI.RefreshUI();
 
             Destroy(previewObject);
             isPlacing = false;
             selectedFurniture = null;
+            currentItemData = null;
             currentRotation = 0f;
         }
         else

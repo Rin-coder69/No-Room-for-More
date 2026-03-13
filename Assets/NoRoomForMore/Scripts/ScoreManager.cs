@@ -1,9 +1,10 @@
+using CGL.Inventory;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-
+    public static MainMenu menuInstance;
     private int score = 0;
 
     void Awake()

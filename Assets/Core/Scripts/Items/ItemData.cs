@@ -98,6 +98,12 @@ namespace CGL.Inventory
         [SerializeField]
         public AudioClip pickupSound;
 
+		[SerializeField]
+        public AudioClip placeSound;
+
+        [SerializeField]
+        public int itemScore = 10;
+
 
         private void OnValidate()
 		{
